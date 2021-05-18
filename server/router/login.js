@@ -23,11 +23,10 @@ login.post('/', async(ctx)=>{      //登录
                 ctx.body = {
                     msg:'登录成功',
                     status:'205',
-                    token: myarr[0].token,
-                    account: myarr[0].account
+         
                 }
              }   
-           ctx.body = result
+       
         }else{
             ctx.body={
                 msg:'身份错误',

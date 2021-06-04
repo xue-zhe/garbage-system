@@ -24,22 +24,50 @@
         <div class="nature">
             <span>{{natureTitle}}</span>
         </div>
-        
         <div class="knowledge">
             <h3>{{knowlegeTitle[0]}}</h3>
             <span>{{definition}}</span>
             <h3>{{knowlegeTitle[1]}}</h3>
             <span>{{content}}</span>
             <h3>{{knowlegeTitle[2]}}</h3>
-            <ul v-for="(condition,index) in condition" :key="index">
-                <li style=" list-style:none;">{{condition}}</li>
-            </ul>
+            <div>{{condition}}</div>
         </div>
         <div  class="recent">
-            <span>{{recentTitle}}</span>
+            <span style="color: #B43953">{{recentTitle}}</span>
             <span v-for="(recentContent,index) in recentContent ":key="index">
                 <a class="link" @click="getrecent(recentContent)">{{recentContent}}</a>
             </span>
+        </div>
+        <div class="everyday">
+            <h2> 日常生活垃圾分为</h2>
+            <div>
+                <img style="width: 100px;height: 100px" src="http://www.lajifenleichaxun.com//static/svg/1_3F6BA8.svg">
+                <div class="everyday-content" style="color: #3F6BA8">
+                    <h3>{{title1}}</h3>
+                    <p>{{content1}}</p>
+                </div>
+            </div>
+            <div>
+                <img style="width: 100px;height: 100px" src="http://www.lajifenleichaxun.com//static/svg/2v_B43953.svg">
+                <div class="everyday-content" style="color: #B43953">
+                    <h3>{{title2}}</h3>
+                    <p>{{content2}}</p>
+                </div>
+            </div>
+            <div>
+                <img style="width: 100px;height: 100px" src="http://www.lajifenleichaxun.com//static/svg/3v_48925B.svg">
+                <div class="everyday-content" style="color: #48925B">
+                    <h3>{{title3}}</h3>
+                    <p>{{content3}}</p>
+                </div>
+            </div>
+            <div>
+                <img style="width: 100px;height: 100px" src="http://www.lajifenleichaxun.com//static/svg/4_89918B.svg">
+                <div class="everyday-content" style="color: #89918B">
+                    <h3>{{title4}}</h3>
+                    <p>{{content4}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -57,10 +85,17 @@
                 url:'',
                 knowlegeTitle:[],
                 definition:'',
-                content:'',
-                condition:[],
+                condition:"",
                 recentTitle:'',
-                recentContent:[]
+                recentContent:[],
+                title1:'',
+                title2:'',
+                title3:'',
+                title4:'',
+                content1:'',
+                content2:'',
+                content3:'',
+                content4:'',
 
             }
         },
@@ -76,6 +111,15 @@
                 this.condition = res.data.condition
                 this.recentTitle = res.data.recentTitle
                 this.recentContent = res.data.recentContent
+                this.title1 = res.data.title1
+                this.title2 = res.data.title2
+                this.title3 = res.data.title3
+                this.title4 = res.data.title4
+                this.content1 = res.data.content1
+                this.content2 = res.data.content2
+                this.content3 = res.data.content3
+                this.content4 = res.data.content4
+
             })
         },
         methods:{
@@ -91,6 +135,14 @@
                     this.condition = res.data.condition
                     this.recentTitle = res.data.recentTitle
                     this.recentContent = res.data.recentContent
+                    this.title1 = res.data.title1
+                    this.title2 = res.data.title2
+                    this.title3 = res.data.title3
+                    this.title4 = res.data.title4
+                    this.content1 = res.data.content1
+                    this.content2 = res.data.content2
+                    this.content3 = res.data.content3
+                    this.content4 = res.data.content4
                 })
             },
             /**
@@ -109,6 +161,14 @@
                     this.condition = res.data.condition
                     this.recentTitle = res.data.recentTitle
                     this.recentContent = res.data.recentContent
+                    this.title1 = res.data.title1
+                    this.title2 = res.data.title2
+                    this.title3 = res.data.title3
+                    this.title4 = res.data.title4
+                    this.content1 = res.data.content1
+                    this.content2 = res.data.content2
+                    this.content3 = res.data.content3
+                    this.content4 = res.data.content4
                 })
             },
             /**
@@ -127,6 +187,14 @@
                     this.condition = res.data.condition
                     this.recentTitle = res.data.recentTitle
                     this.recentContent = res.data.recentContent
+                    this.title1 = res.data.title1
+                    this.title2 = res.data.title2
+                    this.title3 = res.data.title3
+                    this.title4 = res.data.title4
+                    this.content1 = res.data.content1
+                    this.content2 = res.data.content2
+                    this.content3 = res.data.content3
+                    this.content4 = res.data.content4
                 })
             }
         }
@@ -167,10 +235,10 @@
  /*查询*/
  .link{
      margin-right: 10px;
-     cursor:pointer;
  }
  .link:hover{
      color: rosybrown;
+     cursor:pointer;
  }
   /*垃圾属性*/
 .nature {
@@ -179,25 +247,32 @@
     left: 600px;
     font-size: 30px;
 }
-/*垃圾图片*/
-.imgs{
-    position: absolute;
-    top: 350px;
-    width: 400px;
-    left: 530px;
-}
 /*垃圾分类的知识*/
 .knowledge{
     position: absolute;
-    top: 660px;
+    top: 370px;
+    width: 600px;
     left: 500px;
 }
 /*热门查询*/
 .recent{
     position: absolute;
     width: 600px;
-    top: 870px;
+    top: 570px;
+    left: 500px;
+
+}
+    /*日常分类*/
+.everyday{
+    position: absolute;
+    width: 600px;
+    top: 700px;
     left: 500px;
     padding-bottom: 50px;
+}
+.everyday-content{
+    position: relative;
+    top: -80px;
+   left: 120px;
 }
 </style>

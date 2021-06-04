@@ -24,9 +24,7 @@
         <div class="nature">
             <span>{{natureTitle}}</span>
         </div>
-        <div class="imgs">
-            <img :src="url"/>
-        </div>
+        
         <div class="knowledge">
             <h3>{{knowlegeTitle[0]}}</h3>
             <span>{{definition}}</span>

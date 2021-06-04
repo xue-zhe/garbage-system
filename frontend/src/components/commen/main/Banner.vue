@@ -1,7 +1,9 @@
 <template>
         <el-carousel :interval="4000" type="card" height="300px">
             <el-carousel-item  v-for="(img,index) in tableData" :key="index">
-                <img :src="img.banner" width="100%" height="100%">
+                <a href="http://www.epkey.com/">
+                    <img :src="img.banner" width="100%" height="100%">
+                </a>
             </el-carousel-item>
         </el-carousel>
 </template>
